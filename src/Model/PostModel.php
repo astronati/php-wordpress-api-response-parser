@@ -6,6 +6,7 @@ class PostModel
 {
     const DRAFT = 'draft';
     const PENDING = 'pending';
+    const PUBLISH = 'publish';
 
     /**
      * @var array
@@ -86,5 +87,37 @@ class PostModel
     public function getTags(): array
     {
         return $this->tags;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->apiResponse['title']['rendered'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getContent(): string
+    {
+        return $this->apiResponse['content']['rendered'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getLink(): string
+    {
+        return $this->apiResponse['link'];
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDate(): \DateTime
+    {
+        return \DateTime::createFromFormat(\DateTime::W3C, $this->apiResponse['date_gmt'] . '+00:00');
     }
 }
