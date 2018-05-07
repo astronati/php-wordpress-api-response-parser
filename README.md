@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/astronati/php-wordpress-api-response-parser.svg?branch=master)](https://travis-ci.org/astronati/php-sports-open-data-response-parser)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b39ddb493f38495dbf0c7d59366ecd73)](https://www.codacy.com/app/astronati/php-wordpress-api-response-parser?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=astronati/php-wordpress-api-response-parser&amp;utm_campaign=Badge_Grade)
-[![Latest Stable Version](https://poser.pugx.org/astronati/wordpress-api-response-parser/v/stable)](https://packagist.org/packages/astronati/sports-open-data-response-parser)
-[![License](https://poser.pugx.org/astronati/php-wordpress-api-response-parser/license)](https://packagist.org/packages/astronati/sports-open-data-response-parser)
+[![Latest Stable Version](https://poser.pugx.org/astronati/wordpress-api-response-parser/v/stable)](https://packagist.org/packages/astronati/wordpress-api-response-parser)
+[![License](https://poser.pugx.org/astronati/php-wordpress-api-response-parser/license)](https://packagist.org/packages/astronati/wordpress-api-response-parser)
 
 # Wordpress API Response Parser
 Allows to map responses provided by Wordpress API.
