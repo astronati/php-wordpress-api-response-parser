@@ -1,0 +1,22 @@
+language: php
+php:
+  - '7.1'
+sudo: false
+cache:
+  directories:
+    - vendor
+install:
+  - composer install
+script:
+  - composer analysis
+  - composer test
+after_script:
+  - './vendor/bin/robo coverage:send'
+notifications:
+  slack:
+    secure: s13jF1EyPebIx7gj+BpbouIZANEhjcdpcIWcYVBQSY3gYm93aR6XJEmCd614m1jzC33pYXGc08nGdAEsHMuoYpCrgEm6VgsnDsaz22Px6Exrqzyl3QGpAcZjRb+vKR5NpCeCYpEwSyX7qV1IkLTu5RSFjosWA83hCaqNkVybqkuam6j33Y7JfdWxkkG5h2vGDXTB40EC+Iaz3BAXoTSfAXd5HofQaOxnApSy7lzsGttl54+fisdSEP0ZYTW/B6PW8dAU4ZXiYHzwl6i2dJnHLFc/bWKQD3MmuE9Qjfj8v95vjEMt07ixxbk9k9e6ZsZq4vsuEp4BK6YU0MkK3UZKXzdnaKUyGkBtQCApKuJ1YR+RcFr1R3AiHGGaKh48glUTqJ0c0UshsnZul+20A5Xt8FiuExEPyWDK+cxiDY9bg/7imLjoKAUPKxHNJZtXwl7S5vKvNaSSDbddM0FLCuz/cm0jC9fTySWX942pmoJA+4mAyP/u0270Yn/81WlQa3uFZRgReSyCv4v9ed4xjhOOjKqs9zHGCbWizU8oNoUntCcDImyoGcMmZjAN/Ge7G4m9WEH5waESvlchjbnLzBbrMNAG4krgVA0sgK8nm9GE0bY5Dh66tFFinhRM3ErNpIQ5F68YTxzpZrcB/UGlQvhYuPe+HPiLbqND1SaxGHami/Q=
+  email:
+    recipients:
+      - stronati.a+wordpressapiresponseparser@gmail.com
+    on_success: change
+    on_failure: always
