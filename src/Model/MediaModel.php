@@ -21,4 +21,12 @@ class MediaModel
     {
         return $this->apiResponse['id'];
     }
+
+    /**
+     * @return string
+     */
+    public function getThumbnailUrl(): string
+    {
+        return $this->apiResponse['media_details']['sizes']['thumbnail']['source_url'];
+    }
 }

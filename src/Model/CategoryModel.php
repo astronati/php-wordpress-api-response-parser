@@ -21,4 +21,20 @@ class CategoryModel
     {
         return $this->apiResponse['id'];
     }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->apiResponse['name'];
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug(): string
+    {
+        return $this->apiResponse['slug'];
+    }
 }

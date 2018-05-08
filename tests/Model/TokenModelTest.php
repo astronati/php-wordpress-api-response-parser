@@ -7,7 +7,7 @@ use WARP\Model\TokenModel;
 
 class TokenModelTest extends TestCase
 {
-    public function dataProvider()
+    public function tokenDataProvider()
     {
         return [
           ['abc123'],
@@ -15,7 +15,7 @@ class TokenModelTest extends TestCase
     }
 
     /**
-     * @dataProvider dataProvider
+     * @dataProvider tokenDataProvider
      * @param string $token
      */
     public function testGetToken($token)
