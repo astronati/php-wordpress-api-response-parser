@@ -29,4 +29,12 @@ class TagModel
     {
         return $this->apiResponse['name'];
     }
+
+    /**
+     * @return string
+     */
+    public function getSlug(): string
+    {
+        return $this->apiResponse['slug'];
+    }
 }

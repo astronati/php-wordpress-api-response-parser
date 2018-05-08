@@ -7,32 +7,54 @@ use WARP\Model\TagModel;
 
 class TagModelTest extends TestCase
 {
-    public function dataProvider()
+    public function IDDataProvider()
     {
         return [
-          [1, 'this is a tag'],
+          [1],
         ];
     }
 
     /**
-     * @dataProvider dataProvider
+     * @dataProvider IDDataProvider
      * @param int $id
-     * @param string $name
      */
-    public function testGetID($id, $name)
+    public function testGetID($id)
     {
-        $model = new TagModel(['id' => $id, 'name' => $name]);
+        $model = new TagModel(['id' => $id]);
         $this->assertEquals($id, $model->getID());
     }
 
+    public function nameDataProvider()
+    {
+        return [
+          ['#tag'],
+        ];
+    }
+
     /**
-     * @dataProvider dataProvider
-     * @param int $id
+     * @dataProvider nameDataProvider
      * @param string $name
      */
-    public function testGetName($id, $name)
+    public function testGetName($name)
     {
-        $model = new TagModel(['id' => $id, 'name' => $name]);
+        $model = new TagModel(['name' => $name]);
         $this->assertEquals($name, $model->getName());
+    }
+
+    public function slugDataProvider()
+    {
+        return [
+          ['tag'],
+        ];
+    }
+
+    /**
+     * @dataProvider slugDataProvider
+     * @param string $slug
+     */
+    public function testGetSlug($slug)
+    {
+        $model = new TagModel(['slug' => $slug]);
+        $this->assertEquals($slug, $model->getSlug());
     }
 }
