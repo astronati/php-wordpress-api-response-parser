@@ -19,7 +19,7 @@ class CreateTagResponse
     /**
      * @return TagModel
      */
-    public function getPost(): TagModel
+    public function getTag(): TagModel
     {
         return $this->tag;
     }

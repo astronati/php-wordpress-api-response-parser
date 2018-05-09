@@ -15,10 +15,10 @@ class CreateTagResponseTest extends TestCase
         return $instance;
     }
 
-    public function testGetPost()
+    public function testGetTag()
     {
         $tagInstance = $this->getTagInstance();
         $response = new CreateTagResponse($tagInstance);
-        $this->assertSame($tagInstance, $response->getPost());
+        $this->assertSame($tagInstance, $response->getTag());
     }
 }
