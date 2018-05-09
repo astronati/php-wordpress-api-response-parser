@@ -5,6 +5,7 @@ namespace Tests\Response;
 use PHPUnit\Framework\TestCase;
 use WARP\Exception\NotFoundResponseTypeException;
 use WARP\Response\CreatePostResponse;
+use WARP\Response\CreateTagResponse;
 use WARP\Response\CreateTokenResponse;
 use WARP\Response\ReadCategoriesResponse;
 use WARP\Response\ReadMediaResponse;
@@ -19,6 +20,7 @@ class ResponseParserTest extends TestCase
     {
         return [
           [[], ResponseParser::CREATE_POST, CreatePostResponse::class],
+          [[], ResponseParser::CREATE_TAG, CreateTagResponse::class],
           [[], ResponseParser::CREATE_TOKEN, CreateTokenResponse::class],
           [[[], []], ResponseParser::READ_CATEGORIES, ReadCategoriesResponse::class],
           [[[], []], ResponseParser::READ_MEDIA, ReadMediaResponse::class],

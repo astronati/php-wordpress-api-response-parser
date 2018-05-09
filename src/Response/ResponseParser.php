@@ -12,6 +12,7 @@ use WARP\Model\TokenModel;
 class ResponseParser
 {
     const CREATE_POST = 1;
+    const CREATE_TAG = 8;
     const CREATE_TOKEN = 2;
     const READ_CATEGORIES = 3;
     const READ_MEDIA = 4;
@@ -31,6 +32,8 @@ class ResponseParser
         switch ($type) {
             case self::CREATE_POST:
                 return new CreatePostResponse(new PostModel($apiResponse));
+            case self::CREATE_TAG:
+                return new CreateTagResponse(new TagModel($apiResponse));
             case self::READ_CATEGORIES:
                 foreach ($apiResponse as $data) {
                     $models[] = new CategoryModel($data);
