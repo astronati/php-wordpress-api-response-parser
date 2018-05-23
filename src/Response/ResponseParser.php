@@ -47,11 +47,11 @@ class ResponseParser
             case self::READ_POSTS:
                 foreach ($apiResponse as $data) {
                     $postModel = new PostModel($data);
-                    if ($data['_embedded'] && $data['_embedded']['wp:term']) {
+                    if ($data['_embedded'] && array_key_exists('wp:term', $data['_embedded'])) {
                         $postModel->setCategories(ResponseParser::create($data['_embedded']['wp:term'][0], ResponseParser::READ_CATEGORIES)->getCategories());
                         $postModel->setTags(ResponseParser::create($data['_embedded']['wp:term'][1], ResponseParser::READ_TAGS)->getTags());
                     }
-                    if ($data['_embedded'] && $data['_embedded']['wp:featuredmedia']) {
+                    if ($data['_embedded'] && array_key_exists('wp:featuredmedia', $data['_embedded'])) {
                         $postModel->setMedia(ResponseParser::create($data['_embedded']['wp:featuredmedia'], ResponseParser::READ_MEDIA)->getMedia());
                     }
                     $models[] = $postModel;
