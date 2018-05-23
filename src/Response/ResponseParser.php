@@ -47,10 +47,13 @@ class ResponseParser
             case self::READ_POSTS:
                 foreach ($apiResponse as $data) {
                     $postModel = new PostModel($data);
-                    // FIXME Parser takes only into account the query string param `_embed` as set
-                    $postModel->setCategories(ResponseParser::create($data['_embedded']['wp:term'][0], ResponseParser::READ_CATEGORIES)->getCategories());
-                    $postModel->setMedia(ResponseParser::create($data['_embedded']['wp:featuredmedia'], ResponseParser::READ_MEDIA)->getMedia());
-                    $postModel->setTags(ResponseParser::create($data['_embedded']['wp:term'][1], ResponseParser::READ_TAGS)->getTags());
+                    if ($data['_embedded'] && $data['_embedded']['wp:term']) {
+                        $postModel->setCategories(ResponseParser::create($data['_embedded']['wp:term'][0], ResponseParser::READ_CATEGORIES)->getCategories());
+                        $postModel->setTags(ResponseParser::create($data['_embedded']['wp:term'][1], ResponseParser::READ_TAGS)->getTags());
+                    }
+                    if ($data['_embedded'] && $data['_embedded']['wp:featuredmedia']) {
+                        $postModel->setMedia(ResponseParser::create($data['_embedded']['wp:featuredmedia'], ResponseParser::READ_MEDIA)->getMedia());
+                    }
                     $models[] = $postModel;
                 }
                 return new ReadPostsResponse($models);
@@ -64,7 +67,7 @@ class ResponseParser
             case self::UPDATE_POST:
                 return new UpdatePostResponse(new PostModel($apiResponse));
             default:
-                throw new NotFoundResponseTypeException('Response type not allowed');
+                throw new NotFoundResponseTypeException('Response type not found');
         }
     }
 }
