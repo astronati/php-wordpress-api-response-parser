@@ -23,10 +23,38 @@ class MediaModel
     }
 
     /**
-     * @return string
+     * @param string $size
+     * @return string|null
      */
-    public function getThumbnailUrl(): string
+    private function getSizeUrl($size): ?string
     {
-        return $this->apiResponse['media_details']['sizes']['thumbnail']['source_url'];
+        if (array_key_exists($size, $this->apiResponse['media_details']['sizes'])) {
+            return $this->apiResponse['media_details']['sizes'][$size]['source_url'];
+        }
+        return null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getThumbnailUrl(): ?string
+    {
+        return $this->getSizeUrl('thumbnail');
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getMediumUrl(): ?string
+    {
+        return $this->getSizeUrl('medium');
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getLargelUrl(): ?string
+    {
+        return $this->getSizeUrl('large');
     }
 }
