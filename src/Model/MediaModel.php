@@ -53,8 +53,24 @@ class MediaModel
     /**
      * @return string|null
      */
-    public function getLargelUrl(): ?string
+    public function getMediumLargeUrl(): ?string
+    {
+        return $this->getSizeUrl('medium_large');
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getLargeUrl(): ?string
     {
         return $this->getSizeUrl('large');
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getFullUrl(): ?string
+    {
+        return $this->getSizeUrl('full');
     }
 }
