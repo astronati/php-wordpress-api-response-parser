@@ -62,6 +62,25 @@ class MediaModelTest extends TestCase
         $this->assertEquals($sourceUrl, $model->getMediumUrl());
     }
 
+    public function mediumLargeUrlDataProvider()
+    {
+        return [
+          ['http://www.site.it/image.jpg'],
+          [null],
+        ];
+    }
+
+    /**
+     * @dataProvider mediumLargeUrlDataProvider
+     * @param string $sourceUrl
+     */
+    public function testGetMediumLargeUrl($sourceUrl)
+    {
+        $sizes = $sourceUrl ? ['medium_large' => ['source_url' => $sourceUrl]] : [];
+        $model = new MediaModel(['media_details' => ['sizes' => $sizes]]);
+        $this->assertEquals($sourceUrl, $model->getMediumLargeUrl());
+    }
+
     public function largeUrlDataProvider()
     {
         return [
@@ -78,6 +97,25 @@ class MediaModelTest extends TestCase
     {
         $sizes = $sourceUrl ? ['large' => ['source_url' => $sourceUrl]] : [];
         $model = new MediaModel(['media_details' => ['sizes' => $sizes]]);
-        $this->assertEquals($sourceUrl, $model->getLargelUrl());
+        $this->assertEquals($sourceUrl, $model->getLargeUrl());
+    }
+
+    public function fullUrlDataProvider()
+    {
+        return [
+          ['http://www.site.it/image.jpg'],
+          [null],
+        ];
+    }
+
+    /**
+     * @dataProvider fullUrlDataProvider
+     * @param string $sourceUrl
+     */
+    public function testGetFullUrl($sourceUrl)
+    {
+        $sizes = $sourceUrl ? ['full' => ['source_url' => $sourceUrl]] : [];
+        $model = new MediaModel(['media_details' => ['sizes' => $sizes]]);
+        $this->assertEquals($sourceUrl, $model->getFullUrl());
     }
 }
