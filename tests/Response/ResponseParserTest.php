@@ -10,6 +10,7 @@ use WARP\Response\CreateTokenResponse;
 use WARP\Response\ReadCategoriesResponse;
 use WARP\Response\ReadMediaResponse;
 use WARP\Response\ReadPostsResponse;
+use WARP\Response\ReadTagResponse;
 use WARP\Response\ReadTagsResponse;
 use WARP\Response\ResponseParser;
 use WARP\Response\UpdatePostResponse;
@@ -48,6 +49,7 @@ class ResponseParserTest extends TestCase
             ResponseParser::READ_POSTS,
             ReadPostsResponse::class
           ],
+          [[], ResponseParser::READ_TAG, ReadTagResponse::class],
           [[[], []], ResponseParser::READ_TAGS, ReadTagsResponse::class],
           [[], ResponseParser::UPDATE_POST, UpdatePostResponse::class],
         ];

@@ -18,6 +18,7 @@ class ResponseParser
     const READ_MEDIA = 4;
     const READ_POSTS = 5;
     const READ_TAGS = 6;
+    const READ_TAG = 9;
     const UPDATE_POST = 7;
 
     /**
@@ -62,6 +63,8 @@ class ResponseParser
                     $models[] = new TagModel($data);
                 }
                 return new ReadTagsResponse($models);
+            case self::READ_TAG:
+                return new ReadTagResponse(new TagModel($apiResponse));
             case self::CREATE_TOKEN:
                 return new CreateTokenResponse(new TokenModel($apiResponse));
             case self::UPDATE_POST:
