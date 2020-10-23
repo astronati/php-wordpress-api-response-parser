@@ -2,17 +2,17 @@
 
 namespace WARP\Response;
 
-use WARP\Model\TokenModel;
+use WARP\Model\TagModel;
 
 class ReadTagsResponse
 {
     /**
-     * @var TokenModel[]
+     * @var TagModel[]
      */
     private $tags;
 
     /**
-     * @param TokenModel[]
+     * @param TagModel[]
      */
     public function __construct(array $tags)
     {
@@ -20,7 +20,7 @@ class ReadTagsResponse
     }
 
     /**
-     * @return TokenModel[]
+     * @return TagModel[]
      */
     public function getTags(): array
     {
