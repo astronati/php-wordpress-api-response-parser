@@ -120,7 +120,7 @@ class PostModelTest extends TestCase
     public function contentDataProvider()
     {
         return [
-          [3],
+          ['<html><body><script>It should be part</script><p>Other thing</p></body></html>', '<html><body><script>It should be part</script><p>Other thing</p></body></html>'],
         ];
     }
 
@@ -128,10 +128,31 @@ class PostModelTest extends TestCase
      * @dataProvider contentDataProvider
      * @param string $content
      */
-    public function testGetContent($content)
+    public function testGetContent($content, $expectedContent)
     {
         $model = new PostModel(['content' => ['rendered' => $content]]);
-        $this->assertEquals($content, $model->getContent());
+        $this->assertEquals($expectedContent, $model->getContent());
+    }
+
+    public function safeContentDataProvider()
+    {
+        return [
+            ['<html><body><script>It should be part</script><p>Other thing</p></body></html>', '<html><body><p>Other thing</p></body></html>'],
+            ['<html><body><script>It should be part</script><p>Other thing</p><script>It should be part</script></body></html>', '<html><body><p>Other thing</p></body></html>'],
+            ['<html><body><p>Other thing</p></body></html>', '<html><body><p>Other thing</p></body></html>'],
+        ];
+    }
+
+    /**
+     * @dataProvider safeContentDataProvider
+     * @param string $content
+     * @param string $expectedContent
+     */
+    public function testGetSafeContent($content, $expectedContent)
+    {
+        $model = new PostModel(['content' => ['rendered' => $content]]);
+        $this->assertEquals($expectedContent, $model->getSafeContent());
+
     }
 
     public function linkDataProvider()

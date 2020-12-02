@@ -105,6 +105,11 @@ class PostModel
         return $this->apiResponse['content']['rendered'];
     }
 
+    public function getSafeContent(): string
+    {
+        return preg_replace("/(<script>.*?<\/script>)/i", "", $this->apiResponse['content']['rendered']);
+    }
+
     /**
      * @return string
      */
