@@ -38,7 +38,7 @@ $post = $response->getPost();
 echo $post->getID(); // 123
 ```
 
-For more details please take a look at [Response](https://github.com/astronati/php-sports-open-data-response-parser/tree/master/src/Response).
+For more details please take a look at [Response](https://github.com/astronati/php-wordpress-api-response-parser/tree/master/src/Response).
 
 ## Development
 The environment requires [phpunit](https://phpunit.de/), that has been already included in the `dev-dependencies` of the
