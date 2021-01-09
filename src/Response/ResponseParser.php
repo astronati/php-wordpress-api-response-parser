@@ -42,7 +42,12 @@ class ResponseParser
                 return new ReadCategoriesResponse($models);
             case self::READ_MEDIA:
                 foreach ($apiResponse as $data) {
-                    $models[] = new MediaModel($data);
+                    if (!array_key_exists('code', $data)) {
+                        $models[] = new MediaModel($data);
+//                        code: "rest_forbidden"
+//data: {status: 401}
+//message: "Non hai i permessi per farlo."
+                    }
                 }
                 return new ReadMediaResponse($models);
             case self::READ_POSTS:
