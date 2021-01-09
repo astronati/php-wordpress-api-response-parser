@@ -68,6 +68,12 @@ class ResponseParserTest extends TestCase
         $this->assertSame($expectedClass, get_class($response));
     }
 
+    public function testValidImagesGetResponse()
+    {
+        $response = ResponseParser::create([[], ['code' => 'forbidden']], ResponseParser::READ_MEDIA);
+        $this->assertSame(1, \count($response->getMedia()));
+    }
+
     /**
      * @throws NotFoundResponseTypeException
      */
