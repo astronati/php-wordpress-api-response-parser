@@ -17,8 +17,13 @@ class TokenModel
     /**
      * @return string
      */
-    public function getToken(): string
+    public function getJWTToken(): string
     {
-        return $this->apiResponse['token'];
+        return $this->apiResponse['jwt_token'];
+    }
+
+    public function getTokenType(): string
+    {
+        return $this->apiResponse['token_type'];
     }
 }

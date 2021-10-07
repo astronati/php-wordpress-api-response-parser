@@ -3,7 +3,7 @@
   "description": "Allows to map responses provided by any Wordpress API.",
   "type": "library",
   "license": "MIT",
-  "version": "1.8.1",
+  "version": "2.0.0",
   "authors": [
     {
       "name": "Andrea Stronati",
@@ -14,12 +14,12 @@
   "require-dev": {
     "codacy/coverage": "^1.4",
     "consolidation/robo": "~1",
-    "phpunit/phpunit": "^6.5",
-    "phpunit/php-code-coverage": "^5.3",
+    "phpunit/phpunit": "^7.0",
+    "phpunit/php-code-coverage": "^6.0",
     "phpstan/phpstan": "^0.9.1"
   },
   "require": {
-    "php": ">=7.2.5",
+    "php": ">=7.4.12",
     "ext-json": "*"
   },
   "autoload-dev": {

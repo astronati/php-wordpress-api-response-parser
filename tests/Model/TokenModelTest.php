@@ -18,9 +18,25 @@ class TokenModelTest extends TestCase
      * @dataProvider tokenDataProvider
      * @param string $token
      */
-    public function testGetToken($token)
+    public function testGetJWTToken($token)
     {
-        $model = new TokenModel(['token' => $token]);
-        $this->assertEquals($token, $model->getToken());
+        $model = new TokenModel(['jwt_token' => $token]);
+        $this->assertEquals($token, $model->getJWTToken());
+    }
+    public function tokenTypeDataProvider()
+    {
+        return [
+            ['jwt'],
+        ];
+    }
+
+    /**
+     * @dataProvider tokenTypeDataProvider
+     * @param string $type
+     */
+    public function testGetTokenType($type)
+    {
+        $model = new TokenModel(['token_type' => $type]);
+        $this->assertEquals($type, $model->getTokenType());
     }
 }
