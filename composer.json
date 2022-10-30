@@ -3,7 +3,7 @@
   "description": "Allows to map responses provided by any Wordpress API.",
   "type": "library",
   "license": "MIT",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "authors": [
     {
       "name": "Andrea Stronati",

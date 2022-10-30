@@ -118,11 +118,16 @@ class PostModel
         return $this->apiResponse['link'];
     }
 
+    public function getAuthor(): int
+    {
+        return $this->apiResponse['author'];
+    }
+
     /**
      * @return \DateTime
      */
     public function getDate(): \DateTime
     {
-        return \DateTime::createFromFormat(\DateTime::W3C, $this->apiResponse['date_gmt'] . '+00:00');
+        return \DateTime::createFromFormat(\DateTimeInterface::W3C, $this->apiResponse['date_gmt'] . '+00:00');
     }
 }

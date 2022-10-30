@@ -158,7 +158,7 @@ class PostModelTest extends TestCase
     public function linkDataProvider()
     {
         return [
-          ['http://www.website.com/post/id'],
+            ['http://www.website.com/post/id'],
         ];
     }
 
@@ -170,6 +170,22 @@ class PostModelTest extends TestCase
     {
         $model = new PostModel(['link' => $link]);
         $this->assertEquals($link, $model->getLink());
+    }
+
+    public function authorDataProvider()
+    {
+        return [
+            [49],
+        ];
+    }
+
+    /**
+     * @dataProvider authorDataProvider
+     */
+    public function testGetAuthor($author)
+    {
+        $model = new PostModel(['author' => $author]);
+        $this->assertEquals($author, $model->getAuthor());
     }
 
     public function dateDataProvider()
