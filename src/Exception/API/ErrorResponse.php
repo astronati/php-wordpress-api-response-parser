@@ -19,7 +19,7 @@ class ErrorResponse
         return $this->response->code;
     }
 
-    public function getMessage(): string
+    public function getMessage(): ?string
     {
         return $this->response->message;
     }
